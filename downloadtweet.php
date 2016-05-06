@@ -2,7 +2,7 @@
 <head>
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.easing.1.3.js"></script>
-<link rel="stylesheet" type="text/css" media="screen" href="css/content_slider.php">
+<link rel="stylesheet" type="text/css" media="screen" href="css/style.php">
 </head>
 
 <?php
@@ -94,6 +94,7 @@ function printTweet($tweets, $keywords)
 echo '<br> ' . $keywords . '<br>';
 
 foreach($tweets as $tweet1) {
+
 $counter++;
 	print_r($tweet1);
 	$id_str= $tweet1->id_str;
@@ -121,7 +122,7 @@ $counter++;
 		{
 		
 		$query = "Insert into twitter (id_str, hashtag, text, user_id_str, user_name, user_screen_name, follower_count, friends_count, favourites_count, statuses_count, profile_image_url, retweet_count, favorite_count, created_at) Values('$id_str', '$keywords','$text', '$user_id_str', '$user_name', '$user_screen_name', '$follower_count', '$friends_count', '$favourites_count', '$statuses_count', '$profile_image_url', '$retweet_count', '$favorite_count','$created_at')";
-		
+				//to store the data in UTF8 in the database (to display unicode characters)
 		mysql_query("SET CHARACTER SET utf8"); 
 		mysql_query("SET NAMES utf8");   
 
